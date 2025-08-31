@@ -151,7 +151,7 @@ def weekly_trips(driver):
                EC.presence_of_element_located((By.XPATH, "//div[@id='f_7_div']//select[@id='drpdownEstimatedDate']"))
                )
 		select_date = Select(date_element)
-		select_date.select_by_value("-1w")
+		select_date.select_by_value("0w")
         # placed here for troubleshooting
 		search_button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.NAME, 'btnFilter')))
 		search_button.click()
