@@ -1,2 +1,3 @@
 modules/signatures/*.png
 modules/signatures/!rider.png
+modules/__pycache__
