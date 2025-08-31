@@ -139,6 +139,27 @@ def yesterday_trips(driver):
 		print(Fore.RED + f'Error occured when navigating to YESTERDAYs trips page: \n{e}')
 
 
+'''def weekly_trips(driver):
+	try:
+		#select 'assigned' from the dropdown
+		select_status = Select(WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'f_2'))))
+		time.sleep(1)
+		select_status.select_by_value('38')
+		time.sleep(1)
+
+		date_element = WebDriverWait(driver, 20).until(
+               EC.presence_of_element_located((By.XPATH, "//div[@id='f_7_div']//select[@id='drpdownEstimatedDate']"))
+               )
+		select_date = Select(date_element)
+		select_date.select_by_value("-1d")
+        # placed here for troubleshooting
+		search_button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.NAME, 'btnFilter')))
+		search_button.click()
+		time.sleep(2)
+	except Exception as e:
+		print(Fore.RED + f'Error occured when navigating to YESTERDAYs trips page: \n{e}')
+'''
+
 def rider_links(driver):
     user_links = WebDriverWait(driver, 10).until(lambda x: x.find_elements(By.XPATH, '//a[starts-with(@href, "#/trip/tripview/")]'))
     return user_links
@@ -206,6 +227,34 @@ def process_rider_tasks_yesterday(driver):
         except StaleElementReferenceException:
             # Retry the whole loop if the element is stale
             continue
+
+
+'''def process_rider_trips_weekly(driver):
+    while True:
+        try:
+            # Wait for the presence of the elements
+            WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, '//a[starts-with(@href, "#/trip/tripview/")]')))
+            
+            # Retrieve the user links
+            user_links = rider_links(driver)
+            
+            # If no user links are found, break the loop
+            if not user_links:
+                break
+            
+            # Process each user link
+            for link in user_links:
+                try:
+                    user_info_propagate(link, driver)
+                    weekly_trips(driver)
+                except StaleElementReferenceException:
+                    # Retry the operation if the element is stale
+                    user_links = rider_links(driver)
+                    user_info_propagate(link, driver)
+
+        except StaleElementReferenceException:
+            # Retry the whole loop if the element is stale
+'''
 
 #encompasses the assigned function with the addition of querying the previous day
 #Need to reformat this, extremely unwieldy for troubleshooting but I don't have the time
