@@ -30,11 +30,11 @@ print('Initial navigation to TRIP tab [', end='')
 print(Fore.GREEN + 'SUCCESS', end='')
 print(']')
 
-modules.trips.yesterday_trips(driver)
-print('Initial navigation to YESTERDAYS TRIPS page [', end='')
+modules.trips.weekly_trips(driver)
+print('Initial navigation to seven day range page [', end='')
 print(Fore.GREEN + 'SUCCESS', end='')
 print(']')
 
-modules.trips.process_rider_tasks_yesterday(driver)
+modules.trips.process_rider_trips_weekly(driver)
 
 driver.quit()
