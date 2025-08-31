@@ -139,7 +139,7 @@ def yesterday_trips(driver):
 		print(Fore.RED + f'Error occured when navigating to YESTERDAYs trips page: \n{e}')
 
 
-'''def weekly_trips(driver):
+def weekly_trips(driver):
 	try:
 		#select 'assigned' from the dropdown
 		select_status = Select(WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'f_2'))))
@@ -151,14 +151,14 @@ def yesterday_trips(driver):
                EC.presence_of_element_located((By.XPATH, "//div[@id='f_7_div']//select[@id='drpdownEstimatedDate']"))
                )
 		select_date = Select(date_element)
-		select_date.select_by_value("-1d")
+		select_date.select_by_value("-1w")
         # placed here for troubleshooting
 		search_button = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.NAME, 'btnFilter')))
 		search_button.click()
 		time.sleep(2)
 	except Exception as e:
-		print(Fore.RED + f'Error occured when navigating to YESTERDAYs trips page: \n{e}')
-'''
+		print(Fore.RED + f'Error occured when navigating to last weeks' trips page: \n{e}')
+
 
 def rider_links(driver):
     user_links = WebDriverWait(driver, 10).until(lambda x: x.find_elements(By.XPATH, '//a[starts-with(@href, "#/trip/tripview/")]'))
@@ -229,7 +229,7 @@ def process_rider_tasks_yesterday(driver):
             continue
 
 
-'''def process_rider_trips_weekly(driver):
+def process_rider_trips_weekly(driver):
     while True:
         try:
             # Wait for the presence of the elements
@@ -254,7 +254,7 @@ def process_rider_tasks_yesterday(driver):
 
         except StaleElementReferenceException:
             # Retry the whole loop if the element is stale
-'''
+
 
 #encompasses the assigned function with the addition of querying the previous day
 #Need to reformat this, extremely unwieldy for troubleshooting but I don't have the time
