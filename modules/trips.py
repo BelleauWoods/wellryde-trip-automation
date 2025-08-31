@@ -12,7 +12,7 @@ from selenium.webdriver.support.ui import WebDriverWait #for waiting for element
 from selenium.webdriver.support import expected_conditions as EC #for waiting for elements to load
 from selenium.common.exceptions import NoSuchElementException, TimeoutException, StaleElementReferenceException
 from datetime import datetime
-from colorama import Fore, Style, init
+from colorama import Fore, Style, init # type: ignore
 
 
 def company_code_input():
@@ -157,7 +157,7 @@ def weekly_trips(driver):
 		search_button.click()
 		time.sleep(2)
 	except Exception as e:
-		print(Fore.RED + f'Error occured when navigating to last weeks' trips page: \n{e}')
+		print(Fore.RED + f'Error occured when navigating to last weeks trips page: \n{e}')
 
 
 def rider_links(driver):
@@ -254,6 +254,7 @@ def process_rider_trips_weekly(driver):
 
         except StaleElementReferenceException:
             # Retry the whole loop if the element is stale
+            continue
 
 
 #encompasses the assigned function with the addition of querying the previous day
