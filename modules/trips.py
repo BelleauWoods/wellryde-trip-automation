@@ -17,31 +17,22 @@ from colorama import Fore, Style, init # type: ignore
 
 def company_code_input():
     print('')
-    print('')
     print(Fore.GREEN + 'Please enter your ModivCare provided Company code: ', end='') 
     company_code = input(Fore.YELLOW + '')
-    for i in range(5):
-        print('')
     return company_code 
 
 
 def user_name_input():
     print('')
-    print('')
     print(Fore.GREEN + 'Please enter your ModivCare provided user name: ', end='') 
     user_name = input(Fore.YELLOW + '')
-    for i in range(5):
-        print('')
     return user_name 
 
 
 def password_input():
     print('')
-    print('')
     print(Fore.GREEN + 'Please enter your password: ', end='') 
     password = input(Fore.YELLOW + '')
-    for i in range(5):
-        print('')
     return password
 
 
